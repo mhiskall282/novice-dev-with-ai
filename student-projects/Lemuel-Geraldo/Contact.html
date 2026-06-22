@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        Have a question, a custom order, or just want to say hello? We'd love to
+        hear from you.
+      </p>
+
+      <section class="contact-form" aria-label="Contact form">
+        <fieldset style="border: none; padding: 0; margin: 0">
+          <legend>Send us a message</legend>
+
+          <!-- Full name -->
+          <p class="field">
+            <label for="full-name">Full name</label>
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              placeholder="Abena Mensah"
+              autocomplete="name"
+              required
+            />
+          </p>
+
+          <!-- Email -->
+          <p class="field">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </p>
+
+          <!-- Topic dropdown -->
+          <p class="field">
+            <label for="topic">Topic</label>
+            <span class="select-wrap">
+              <select id="topic" name="topic" required>
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="custom-order">Custom order enquiry</option>
+                <option value="wholesale">Wholesale & catering</option>
+                <option value="feedback">Feedback & compliments</option>
+              </select>
+            </span>
+          </p>
+
+          <!-- Message -->
+          <p class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell us what's on your mind…"
+              required
+            ></textarea>
+          </p>
+
+          <button type="button" class="submit-btn" onclick="handleSubmit()">
+            Send Message
+          </button>
+
+          <p class="success-msg" id="success-msg" role="status"></p>
+        </fieldset>
+      </section>
+    </section>
+  </body>
+  <footer>
+    © 2026 Sunshine Bakery . Find us on
+    <a
+      class="ext"
+      href="https://www.google.com/maps"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Google Maps
+    </a>
+  </footer>
+</html>
