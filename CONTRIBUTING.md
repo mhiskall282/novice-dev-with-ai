@@ -77,6 +77,7 @@ Click the branch dropdown and select `student/your-name`. Your files should be t
    ```
 
    Examples:
+
    ```
    Amara Mensah — Day 2 — HTML About Page
    Kofi Boateng — Day 3 — Semantic HTML + CSS
@@ -93,18 +94,23 @@ Copy and fill in this template in the description box:
 
 ```markdown
 ## What I Built
+
 [Describe in 2–3 sentences what your page/exercise contains]
 
 ## What I Learned
+
 [Name 2–3 specific things you understood better after doing this exercise]
 
 ## What Was Hard
+
 [What concept or part of the code gave you trouble?]
 
 ## AI Prompts I Used
+
 [Paste 1–2 prompts you gave to Antigravity that helped you — be specific]
 
 ## Self-Check (tick each one)
+
 - [ ] HTML validator passes (zero errors): https://validator.w3.org/
 - [ ] CSS validator passes (zero errors): https://jigsaw.w3.org/css-validator/
 - [ ] All images have alt text
@@ -115,6 +121,7 @@ Copy and fill in this template in the description box:
 - [ ] Committed and pushed to my branch
 
 ## Questions for the Instructor
+
 [Any specific things you want feedback on, or concepts you're unsure about]
 ```
 
@@ -125,6 +132,7 @@ Copy and fill in this template in the description box:
 ### Step 4 — Wait for Review
 
 The instructor will:
+
 - Review your code directly on GitHub
 - Leave **inline comments** on specific lines of your HTML/CSS
 - Leave a **general review comment** with your rubric score
@@ -167,45 +175,52 @@ The PR will be merged into the course repo — your code becomes part of the cla
 
 ## PR Rules
 
-| Rule | Why |
-|---|---|
-| One PR per day/assignment | Keeps reviews organized |
-| Title must include your full name | Instructor teaches multiple students |
-| Description template is required | Self-reflection is part of the learning |
-| All self-checks must be ticked | Check your own work before asking someone else |
-| Never push directly to `main` | `main` is protected — you cannot merge your own work |
-| Never edit another student's folder | Work only in `student-projects/your-name/` |
-| Keep all work on `student/your-name` branch | One branch per student for the whole course |
+| Rule                                        | Why                                                  |
+| ------------------------------------------- | ---------------------------------------------------- |
+| One PR per day/assignment                   | Keeps reviews organized                              |
+| Title must include your full name           | Instructor teaches multiple students                 |
+| Description template is required            | Self-reflection is part of the learning              |
+| All self-checks must be ticked              | Check your own work before asking someone else       |
+| Never push directly to `main`               | `main` is protected — you cannot merge your own work |
+| Never edit another student's folder         | Work only in `student-projects/your-name/`           |
+| Keep all work on `student/your-name` branch | One branch per student for the whole course          |
 
 ---
 
 ## Example: A Complete Good PR
 
 **Title:**
+
 ```
 Amara Mensah — Day 3 — Semantic HTML + CSS Introduction
 ```
 
 **Description:**
+
 ```markdown
 ## What I Built
+
 A fully semantic 4-region personal page using header, nav, main, and footer.
 I also added my first external CSS file with a full reset and basic typography.
 
 ## What I Learned
+
 - The difference between <section> and <article>
 - Why box-sizing: border-box matters (padding no longer breaks width)
 - How to use rem instead of px for font sizes
 
 ## What Was Hard
+
 I kept forgetting to link the CSS file and wondering why nothing was styled.
 I learned to always check the <head> section first.
 
 ## AI Prompts I Used
+
 "I have a blog post on my page. Should I use <section> or <article>?
- Explain the difference before showing me which one to use."
+Explain the difference before showing me which one to use."
 
 ## Self-Check
+
 - [x] HTML validator passes
 - [x] CSS validator passes
 - [x] All images have alt text
@@ -214,6 +229,7 @@ I learned to always check the <head> section first.
 - [x] External CSS only
 
 ## Questions for the Instructor
+
 Am I supposed to put my <nav> inside <header> or outside it?
 I saw both online and I'm not sure which is correct.
 ```
@@ -222,24 +238,24 @@ I saw both online and I'm not sure which is correct.
 
 ## Useful GitHub Links
 
-| Action | Link |
-|---|---|
-| Your fork | `https://github.com/YOUR-USERNAME/novice-dev-with-ai` |
-| Instructor repo | `https://github.com/mhiskall282/novice-dev-with-ai` |
-| Your pull requests | `https://github.com/mhiskall282/novice-dev-with-ai/pulls` |
-| Open a new PR | `https://github.com/mhiskall282/novice-dev-with-ai/compare` |
+| Action             | Link                                                        |
+| ------------------ | ----------------------------------------------------------- |
+| Your fork          | `https://github.com/YOUR-USERNAME/novice-dev-with-ai`       |
+| Instructor repo    | `https://github.com/mhiskall282/novice-dev-with-ai`         |
+| Your pull requests | `https://github.com/mhiskall282/novice-dev-with-ai/pulls`   |
+| Open a new PR      | `https://github.com/mhiskall282/novice-dev-with-ai/compare` |
 
 ---
 
 ## Common Mistakes When Opening PRs
 
-| Mistake | How to Spot It | How to Fix It |
-|---|---|---|
-| PR goes to your own fork's main | Base repo shows YOUR username | Change base to `mhiskall282/novice-dev-with-ai` |
-| Description is empty | Instructor asks for it | Always fill in the template |
-| Wrong branch selected | PR shows files from other students | Select `student/your-name` as the compare branch |
-| Code not pushed before PR | PR shows 0 files changed | Run `git push origin student/your-name` first |
-| New PR opened for every fix | Multiple open PRs with same title | Push fixes to the same branch — PR auto-updates |
+| Mistake                         | How to Spot It                     | How to Fix It                                    |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------ |
+| PR goes to your own fork's main | Base repo shows YOUR username      | Change base to `mhiskall282/novice-dev-with-ai`  |
+| Description is empty            | Instructor asks for it             | Always fill in the template                      |
+| Wrong branch selected           | PR shows files from other students | Select `student/your-name` as the compare branch |
+| Code not pushed before PR       | PR shows 0 files changed           | Run `git push origin student/your-name` first    |
+| New PR opened for every fix     | Multiple open PRs with same title  | Push fixes to the same branch — PR auto-updates  |
 
 ---
 
