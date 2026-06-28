@@ -3,51 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "style.css">
-    <title>Gideon Tetteh - first website</title>
-    <meta name = "description" content = "This is my first website, I am learning web development in this course and I am excited to create more websites and applications">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>ViewPort - Movie Search</title>
+    <meta name="description" content="Search for movies and discover new favorites with ViewPort">
 </head>
 <body>
     <header>
-        <h1>Gideon Tetteh Luotey</h1>
+        <h1>ViewPort</h1>
+        <p>Discover your next favorite movie</p>
     </header>
     
     <nav>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="edu.html">Education</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="social-media.html">socials</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <main>
-        <section class="welcome-section">
-            <h1>Hello, I'm Gideon Tetteh Luotey</h1>
-            <p>I'm learning web Development in this course</p>
-            <p>I want to learn web development so that I can create scalable and efficient products and 
-                also develop a high-end skill that can feed me for a lifetime</p>
-            <p>I am from the Greater Accra Region</p>
+        <section class="search-section">
+            <form id="search-form">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Search for a movie..." 
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
         </section>
 
-        <article class="hobbies">
-            <h2>My Hobbies</h2>
-            <ul>
-                <li>Playing football</li>
-                <li>Cooking</li>
-                <li>Traveling</li>
-                <li>Watching movies</li>
-            </ul>
-        </article>
+        <section class="loading-section" id="loading-section">
+            <p class="loading-text">Loading movies...</p>
+        </section>
 
-        <aside class="fun-fact">
-            <h2>Fun Fact</h2>
-            <p>The greatest tragedy in this world is never trying.</p>
-            <p class="quote">- Robin Sharma</p>
-            <a href="https://www.goodreads.com/quotes/106-the-greatest-tragedy-in-this-world-is-never-trying" target="_blank">Read more quotes</a>
-        </aside>
+        <section class="error-section" id="error-section">
+            <p class="error-text" id="error-text"></p>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="movies-container" id="movies-container">
+                <!-- Movie cards will be dynamically inserted here -->
+            </div>
+        </section>
 
         <footer class="footer">
-            <p>&copy; 2026 Gideon Tetteh Luotey. All rights reserved.</p>
+            <p>&copy; 2026 ViewPort. All rights reserved.</p>
         </footer>
     </main>
 </body>

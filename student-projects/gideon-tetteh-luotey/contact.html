@@ -3,11 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact page</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>ViewPort - Contact</title>
+    <meta name="description" content="Contact the ViewPort team">
 </head>
 <body>
-    <a href="index.html">Home page</a>
-    <h1>welcome to our contact page</h1>
-    <p>get in touch with us through our email and the contact listed below.</p>
+    <header>
+        <h1>ViewPort</h1>
+        <p>Discover your next favorite movie</p>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section class="welcome-section">
+            <h1>Contact Us</h1>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 ViewPort. All rights reserved.</p>
+        </footer>
+    </main>
 </body>
 </html>
