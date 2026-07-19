@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>ViewPort - Movie Search</title>
+    <meta name="description" content="Search for movies and discover new favorites with ViewPort">
+</head>
+<body>
+    <header>
+        <h1>ViewPort</h1>
+        <p>Discover your next favorite movie</p>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section class="search-section">
+            <form id="search-form">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Search for a movie..." 
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="loading-section" id="loading-section">
+            <p class="loading-text">Loading movies...</p>
+        </section>
+
+        <section class="error-section" id="error-section">
+            <p class="error-text" id="error-text"></p>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="movies-container" id="movies-container">
+                <!-- Movie cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 ViewPort. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
