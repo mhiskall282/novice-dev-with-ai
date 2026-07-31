@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nasaa-Deen Insah — Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ─── CSS Variables ─── */
+      :root {
+        --army: #4b5320;
+        --army-light: #6b7a2e;
+        --army-pale: #8a9642;
+        --army-muted: #c5cb9a;
+        --army-tint: #eef0e0;
+        --white: #ffffff;
+        --off-white: #fafaf7;
+        --ink: #1a1c10;
+        --ink-soft: #3d4018;
+        --border: rgba(75, 83, 32, 0.18);
+        --shadow: 0 4px 32px rgba(75, 83, 32, 0.1);
+      }
+
+      /* ─── Reset & Base ─── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Libre Baskerville", Georgia, serif;
+        background: var(--white);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ─── Custom Scrollbar ─── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--white);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--army-muted);
+        border-radius: 3px;
+      }
+
+      /* ─── Selection ─── */
+      ::selection {
+        background: var(--army-muted);
+        color: var(--ink);
+      }
+
+      /* ─── Navigation ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.4rem 4rem;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: var(--army);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+      }
+
+      .nav-logo span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--army-pale);
+        border-radius: 50%;
+        margin-left: 4px;
+        vertical-align: middle;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-family: "DM Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--army);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--army);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* ─── Hero Section ─── */
+      #hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 0 4rem;
+        padding-top: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Geometric background pattern */
+      #hero::before {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 520px;
+        height: 520px;
+        border: 60px solid var(--army-tint);
+        border-radius: 50%;
+        opacity: 0.7;
+      }
+
+      #hero::after {
+        content: "";
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 360px;
+        height: 360px;
+        background: var(--army-tint);
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .hero-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--army-pale);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .hero-tag::before {
+        content: "";
+        display: inline-block;
+        width: 32px;
+        height: 1px;
+        background: var(--army-pale);
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1.05;
+        color: var(--ink);
+        margin-bottom: 1.4rem;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--army);
+      }
+
+      .hero-bio {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--ink-soft);
+        max-width: 460px;
+        margin-bottom: 2.4rem;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        background: var(--army);
+        color: var(--white);
+        font-family: "DM Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid var(--army);
+        transition: all 0.25s ease;
+      }
+
+      .btn-primary:hover {
+        background: var(--white);
+        color: var(--army);
+      }
+
+      .btn-outline {
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        background: transparent;
+        color: var(--army);
+        font-family: "DM Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid var(--army);
+        transition: all 0.25s ease;
+      }
+
+      .btn-outline:hover {
+        background: var(--army);
+        color: var(--white);
+      }
+
+      .hero-visual {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+
+      .hero-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 2.4rem;
+        width: 320px;
+        position: relative;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: 6px;
+        bottom: 6px;
+        border: 2px solid var(--army-muted);
+        pointer-events: none;
+      }
+
+      .avatar-placeholder {
+        width: 72px;
+        height: 72px;
+        background: var(--army-tint);
+        border: 3px solid var(--army);
+        border-radius: 50%;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--army);
+      }
+
+      .hero-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.3rem;
+      }
+
+      .hero-card p {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--army-pale);
+        letter-spacing: 0.08em;
+        margin-bottom: 1.4rem;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.2rem;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--army);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-top: 0.3rem;
+      }
+
+      /* ─── Section Base ─── */
+      section {
+        padding: 6rem 4rem;
+      }
+
+      .section-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--army-pale);
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        background: var(--army-pale);
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 900;
+        color: var(--ink);
+        margin-bottom: 3rem;
+        line-height: 1.1;
+      }
+
+      h2 em {
+        font-style: italic;
+        color: var(--army);
+      }
+
+      /* ─── About Section ─── */
+      #about {
+        background: var(--off-white);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+        line-height: 1.9;
+        color: var(--ink-soft);
+        margin-bottom: 1.2rem;
+      }
+
+      .about-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .about-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .detail-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .detail-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .detail-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--army-tint);
+        border: 1px solid var(--army-muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1rem;
+      }
+
+      .detail-info strong {
+        display: block;
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--army-pale);
+        margin-bottom: 0.2rem;
+      }
+
+      .detail-info span {
+        font-size: 0.95rem;
+        color: var(--ink);
+      }
+
+      /* ─── Skills Section ─── */
+      #skills {
+        background: var(--white);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .skill-category {
+        border: 1px solid var(--border);
+        padding: 2rem;
+        position: relative;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+      }
+
+      .skill-category:hover {
+        border-color: var(--army);
+        box-shadow: var(--shadow);
+      }
+
+      .skill-category::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--army);
+        transition: width 0.35s ease;
+      }
+
+      .skill-category:hover::after {
+        width: 100%;
+      }
+
+      .skill-cat-icon {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .skill-cat-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 1rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+        padding: 0.35rem 0.7rem;
+        background: var(--army-tint);
+        color: var(--army);
+        border: 1px solid var(--army-muted);
+      }
+
+      /* ─── Projects Section ─── */
+      #projects {
+        background: var(--off-white);
+        border-top: 1px solid var(--border);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 2.2rem;
+        position: relative;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+        cursor: default;
+      }
+
+      .project-card:hover {
+        box-shadow: 0 8px 40px rgba(75, 83, 32, 0.14);
+      }
+
+      .project-card.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .project-number {
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        font-weight: 900;
+        color: var(--army-tint);
+        line-height: 1;
+        margin-bottom: 1rem;
+        transition: color 0.3s;
+      }
+
+      .project-card:hover .project-number {
+        color: var(--army-muted);
+      }
+
+      .project-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.7rem;
+      }
+
+      .project-desc {
+        font-size: 0.92rem;
+        line-height: 1.75;
+        color: var(--ink-soft);
+        margin-bottom: 1.4rem;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .tech-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 0.63rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.65rem;
+        border: 1px solid var(--army);
+        color: var(--army);
+        background: transparent;
+      }
+
+      .project-link {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--army);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.2s;
+      }
+
+      .project-link:hover {
+        gap: 0.9rem;
+      }
+
+      .project-link::after {
+        content: "→";
+      }
+
+      .project-visual {
+        background: var(--army-tint);
+        border: 1px solid var(--army-muted);
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-visual-inner {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--army);
+        padding: 1.5rem;
+        line-height: 1.8;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+      }
+
+      /* ─── Experience Section ─── */
+      #experience {
+        background: var(--white);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 0;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        padding-left: 2.5rem;
+        padding-bottom: 3rem;
+        position: relative;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -6px;
+        top: 6px;
+        width: 13px;
+        height: 13px;
+        background: var(--army);
+        border: 2px solid var(--white);
+        outline: 2px solid var(--army);
+        border-radius: 50%;
+      }
+
+      .timeline-date {
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--army-pale);
+        margin-bottom: 0.4rem;
+      }
+
+      .timeline-role {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.2rem;
+      }
+
+      .timeline-company {
+        font-size: 0.9rem;
+        color: var(--army);
+        font-style: italic;
+        margin-bottom: 0.8rem;
+      }
+
+      .timeline-desc {
+        font-size: 0.92rem;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+
+      /* ─── Contact Section ─── */
+      #contact {
+        background: var(--army);
+        color: var(--white);
+      }
+
+      #contact .section-label {
+        color: var(--army-muted);
+      }
+      #contact .section-label::before {
+        background: var(--army-muted);
+      }
+      #contact h2 {
+        color: var(--white);
+      }
+      #contact h2 em {
+        color: var(--army-muted);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .contact-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 2rem;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: "DM Mono", monospace;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        transition: color 0.2s;
+      }
+
+      .contact-link:hover {
+        color: var(--army-muted);
+      }
+
+      .contact-icon {
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--army-muted);
+      }
+
+      input,
+      textarea {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--white);
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.9rem;
+        padding: 0.85rem 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+        resize: vertical;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: var(--army-muted);
+      }
+
+      textarea {
+        min-height: 130px;
+      }
+
+      .btn-light {
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        background: var(--white);
+        color: var(--army);
+        font-family: "DM Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid var(--white);
+        cursor: pointer;
+        transition: all 0.25s ease;
+        align-self: flex-start;
+      }
+
+      .btn-light:hover {
+        background: transparent;
+        color: var(--white);
+      }
+
+      /* ─── Footer ─── */
+      footer {
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        padding: 2rem 4rem;
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      footer span {
+        color: var(--army-muted);
+      }
+
+      /* ─── Animations ─── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ─── Responsive ─── */
+      @media (max-width: 900px) {
+        nav {
+          padding: 1.2rem 1.8rem;
+        }
+        .nav-links {
+          gap: 1.4rem;
+        }
+
+        #hero {
+          grid-template-columns: 1fr;
+          padding: 7rem 1.8rem 4rem;
+          text-align: center;
+          gap: 3rem;
+        }
+
+        #hero::before,
+        #hero::after {
+          display: none;
+        }
+
+        .hero-bio {
+          margin: 0 auto 2rem;
+        }
+        .hero-cta {
+          justify-content: center;
+        }
+        .hero-card {
+          width: 100%;
+          max-width: 320px;
+        }
+
+        section {
+          padding: 4rem 1.8rem;
+        }
+
+        .about-grid,
+        .contact-grid,
+        .project-card.featured {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-card.featured {
+          grid-column: 1;
+        }
+
+        footer {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#hero" class="nav-logo">N·D·I <span></span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-tag">Software Engineer &amp; Builder</div>
+        <h1>
+          Nasaa-Deen<br />
+          <em>Insah</em>
+        </h1>
+        <p class="hero-bio">
+          I craft clean, scalable software that solves real problems — from the
+          first line of code to the final deployment. Passionate about elegant
+          architecture, great user experience, and meaningful impact.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="avatar-placeholder">NI</div>
+          <h3>Nasaa-Deen Insah</h3>
+          <p>Software Engineer · Accra, GH</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">5+</div>
+              <div class="stat-label">Years Exp.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">20+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Clients</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">∞</div>
+              <div class="stat-label">Coffee ☕</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-label">Who I Am</div>
+      <h2>Built on curiosity,<br /><em>driven by craft</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm Nasaa-Deen Insah, a software engineer based in Accra, Ghana. I
+            specialise in building robust web applications and systems, bringing
+            together a deep understanding of both the frontend and backend to
+            create seamless, high-quality products.
+          </p>
+          <p>
+            My approach to engineering is grounded in clarity: clear code, clear
+            architecture, and clear communication. I believe the best software
+            is not just functional — it's maintainable, performant, and a
+            pleasure to work with.
+          </p>
+          <p>
+            When I'm not writing code, I'm exploring new technologies,
+            contributing to open-source, or mentoring the next generation of
+            developers in the Ghanaian tech community.
+          </p>
+        </div>
+        <div class="about-details">
+          <div class="detail-row">
+            <div class="detail-icon">📍</div>
+            <div class="detail-info">
+              <strong>Location</strong>
+              <span>Accra, Greater Accra, Ghana</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">💼</div>
+            <div class="detail-info">
+              <strong>Role</strong>
+              <span>Software Engineer (Full-Stack)</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">🎓</div>
+            <div class="detail-info">
+              <strong>Education</strong>
+              <span>BSc Computer Science</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">🌐</div>
+            <div class="detail-info">
+              <strong>Languages</strong>
+              <span>English, Twi, Hausa</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">✅</div>
+            <div class="detail-info">
+              <strong>Availability</strong>
+              <span>Open to opportunities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-label">Expertise</div>
+      <h2>What I <em>bring</em><br />to the table</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-cat-icon">🖥️</div>
+          <div class="skill-cat-title">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Tailwind</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-icon">⚙️</div>
+          <div class="skill-cat-title">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">GraphQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-icon">🗄️</div>
+          <div class="skill-cat-title">Databases</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-icon">☁️</div>
+          <div class="skill-cat-title">Cloud &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-icon">🔧</div>
+          <div class="skill-cat-title">Tools &amp; Workflow</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Agile / Scrum</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-icon">🧩</div>
+          <div class="skill-cat-title">Concepts</div>
+          <div class="skill-tags">
+            <span class="skill-tag">System Design</span>
+            <span class="skill-tag">TDD</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Algorithms</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-label">Portfolio</div>
+      <h2>Selected <em>work</em></h2>
+      <div class="projects-grid">
+        <div class="project-card featured">
+          <div>
+            <div class="project-number">01</div>
+            <div class="project-title">AgriLink Ghana Platform</div>
+            <p class="project-desc">
+              A full-stack marketplace connecting Ghanaian farmers directly with
+              buyers and retailers — eliminating middlemen and increasing farmer
+              revenue. Features real-time inventory, mobile-first design, and
+              SMS integration for low-connectivity regions.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">AWS</span>
+              <span class="tech-badge">Twilio</span>
+            </div>
+            <a href="#" class="project-link">View Case Study</a>
+          </div>
+          <div class="project-visual">
+            <div class="project-visual-inner">
+              &gt; connecting farmers &amp; buyers<br />
+              &gt; 1,200+ active users<br />
+              &gt; real-time inventory sync<br />
+              &gt; GHS 2M+ transactions
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">02</div>
+          <div class="project-title">HealthTrack API</div>
+          <p class="project-desc">
+            A scalable RESTful API backend for a telehealth startup, handling
+            patient records, appointment booking, and secure data storage
+            compliant with health privacy standards.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Docker</span>
+          </div>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">03</div>
+          <div class="project-title">DevBoard Dashboard</div>
+          <p class="project-desc">
+            An internal analytics dashboard for engineering teams to monitor
+            deployments, track performance metrics, and manage CI/CD pipelines
+            from a unified interface.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">GraphQL</span>
+            <span class="tech-badge">Redis</span>
+          </div>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-label">Career</div>
+      <h2>Where I've <em>worked</em></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022 — Present</div>
+          <div class="timeline-role">Senior Software Engineer</div>
+          <div class="timeline-company">TechBridge Africa, Accra</div>
+          <p class="timeline-desc">
+            Leading a team of 6 engineers to build and scale a B2B SaaS platform
+            serving 300+ SMEs across West Africa. Drove a 40% improvement in API
+            response time through architectural refactoring and caching
+            strategies.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2020 — 2022</div>
+          <div class="timeline-role">Full-Stack Developer</div>
+          <div class="timeline-company">Hubtel, Accra</div>
+          <p class="timeline-desc">
+            Developed payment integration modules and customer-facing web
+            applications used by millions of Ghanaians. Collaborated closely
+            with product and design teams in an agile environment.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019 — 2020</div>
+          <div class="timeline-role">Junior Web Developer</div>
+          <div class="timeline-company">Freelance / Remote</div>
+          <p class="timeline-desc">
+            Delivered custom websites and web applications for clients across
+            Ghana, Nigeria, and the UK. Built strong foundations in client
+            communication, project management, and end-to-end delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-label">Let's Connect</div>
+      <h2>Ready to build<br /><em>something great?</em></h2>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p>
+            Whether you have a project in mind, a role to fill, or just want to
+            talk tech — my inbox is always open. I'm especially interested in
+            projects with meaningful impact in Africa and beyond.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:nasaadeen@email.com" class="contact-link">
+              <div class="contact-icon">✉️</div>
+              nasaadeen@email.com
+            </a>
+            <a
+              href="https://linkedin.com"
+              class="contact-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="contact-icon">in</div>
+              linkedin.com/in/nasaadeen-insah
+            </a>
+            <a
+              href="https://github.com"
+              class="contact-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="contact-icon">⌥</div>
+              github.com/nasaadeen-insah
+            </a>
+            <a href="tel:+233" class="contact-link">
+              <div class="contact-icon">📞</div>
+              +233 — Accra, Ghana
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="e.g. Kofi Otieno"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Tell me about your project or idea…"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-light">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© 2026 Nasaa-Deen Insah</span>
+      <span
+        >Built with care &amp; <span style="color: #8a9642">♥</span> in Accra,
+        Ghana</span
+      >
+    </footer>
+
+    <script>
+      // Smooth scroll nav highlight
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.style.opacity =
+                  link.getAttribute("href") === "#" + entry.target.id
+                    ? "1"
+                    : "0.55";
+              });
+            }
+          });
+        },
+        { threshold: 0.4 },
+      );
+
+      sections.forEach((s) => observer.observe(s));
+
+      // Scroll-triggered card animations
+      const cards = document.querySelectorAll(
+        ".project-card, .skill-category, .timeline-item",
+      );
+      const cardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = `fadeUp 0.55s ${i * 0.08}s ease both`;
+              cardObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      cards.forEach((card) => cardObserver.observe(card));
+
+      // Form handler
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector("button");
+        btn.textContent = "Message Sent ✓";
+        btn.style.background = "var(--army-muted)";
+        btn.style.borderColor = "var(--army-muted)";
+        btn.style.color = "var(--army)";
+        setTimeout(() => {
+          btn.textContent = "Send Message →";
+          btn.style.background = "";
+          btn.style.borderColor = "";
+          btn.style.color = "";
+          e.target.reset();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
